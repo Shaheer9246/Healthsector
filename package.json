@@ -1,0 +1,10 @@
+{
+  "name": "evidence-health",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node build.js && npx serve dist",
+    "build": "node build.js"
+  },
+  "engines": { "node": ">=20.0.0" }
+}
