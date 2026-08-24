@@ -167,7 +167,7 @@ fs.rmSync(OUT,{recursive:true,force:true});
 fs.mkdirSync(`${OUT}/articles`,{recursive:true});
 fs.cpSync(`${SRC}/styles`,`${OUT}/styles`,{recursive:true});
 fs.cpSync(`${SRC}/scripts`,`${OUT}/scripts`,{recursive:true});
-fs.cpSync(`${SRC}/adminsector`,`${OUT}/adminsector`,{recursive:true});
+fs.cpSync(`./adminsector`, `${OUT}/adminsector`, { recursive: true });
 if(fs.existsSync(`${SRC}/assets`)) fs.cpSync(`${SRC}/assets`,`${OUT}/assets`,{recursive:true});
 
 // Build articles
