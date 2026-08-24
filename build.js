@@ -22,7 +22,7 @@ function parseMd(md) {
     .replace(/^(?!<[hupbl])/gm, m => m.trim() ? '<p>' + m : m);
 }
 
-// --- FRONTMATTER PARSER ---
+// --- FRONTMATTER PARSER (Fixed for YAML arrays) ---
 function parseFm(content) {
   const m = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!m) return { data: {}, body: content };
@@ -30,8 +30,21 @@ function parseFm(content) {
   m[1].split('\n').forEach(line => {
     const [k, ...v] = line.split(':');
     if (!k || !v.length) return;
-    const val = v.join(':').trim();
-    data[k.trim()] = val.startsWith('[') ? JSON.parse(val.replace(/'/g,'"')) : val.replace(/^['"]|['"]$/g,'');
+    let val = v.join(':').trim();
+
+    // Handle YAML-style arrays: [Item1, Item2] → ["Item1", "Item2"]
+    if (val.startsWith('[') && val.endsWith(']')) {
+      const inner = val.slice(1, -1);
+      data[k.trim()] = inner.split(',').map(item => item.trim().replace(/^['"]|['"]$/g, ''));
+    }
+    // Handle quoted strings
+    else if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+      data[k.trim()] = val.slice(1, -1);
+    }
+    // Handle single unquoted values
+    else {
+      data[k.trim()] = val;
+    }
   });
   return { data, body: m[2] };
 }
@@ -83,7 +96,7 @@ function renderArticle(a) {
   const dateStr = a.dateObj.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});
   const reviewedStr = a.reviewedDateObj.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});
   const evidenceClass = `evidence-badge--${a.evidenceGrade||'moderate'}`;
-  
+
   const relatedHtml = related.length ? `
     <aside class="related-articles" aria-labelledby="related-h">
       <h3 id="related-h">Related Reading</h3>
