@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence-Based Health</title>
+<meta name="description" content="Peer-reviewed health research translated into actionable guidance. No hype, no ads, just evidence.">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
+<link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header"><div class="container header__inner">
+<a href="/" class="logo">EvidenceHealth</a>
+<nav aria-label="Primary"><ul class="nav__list">
+<li><a href="/articles/">Articles</a></li>
+<li><a href="/tools/">Tools</a></li>
+<li><button id="search-toggle" class="search-btn" aria-label="Search">🔍</button></li>
+</ul></nav>
+<a href="/newsletter/" class="btn btn--primary">Subscribe</a>
+</div></header>
+
+<!-- Search Overlay -->
+<div id="search-overlay" class="search-overlay" hidden>
+<div class="search-overlay__inner">
+<input type="search" id="search-input" placeholder="Search articles..." aria-label="Search articles">
+<ul id="search-results" role="listbox" aria-live="polite"></ul>
+<button id="search-close" class="search-close" aria-label="Close search">&times;</button>
+</div>
+</div>
+
+<main id="main">
+
+<---hero section--->
+<section class="hero container" aria-labelledby="hero-h">
+<div class="hero__content">
+<span class="evidence-badge evidence-badge--high">Evidence Grade: High</span>
+<h1 id="hero-h">Why Reducing Protein Intake Could Promote Healthy Aging</h1>
+<p class="hero__dek">New research suggests moderate protein restriction activates cellular cleanup pathways linked to longevity — but timing matters more than total amount.</p>
+<div class="hero__meta">
+<span class="hero__author">Yasemin Nicola Sakay, MSc</span>
+<time datetime="2026-08-20">Aug 20, 2026 · 6 min read</time>
+</div>
+<a href="/articles/protein-aging.html" class="btn btn--primary" style="margin-top:1.5rem">Read Article →</a>
+</div>
+<figure class="hero__media">
+<img src="/assets/uploads/protein-aging-hero.webp" alt="Cellular autophagy pathways" width="800" height="450" loading="eager">
+</figure>
+</section>
+
+<---latest news grid--->
+<section class="news-grid container" aria-labelledby="news-h">
+<header class="section-header"><h2 id="news-h">Latest News</h2><a href="/articles/" class="section-header__link">View All →</a></header>
+<ul class="news-grid__list" role="list">
+<!-- DYNAMIC_ARTICLES -->
+</ul>
+</section>
+
+<---interactive tools hub--->
+<section class="tools-hub" aria-labelledby="tools-h">
+<div class="container">
+<header class="section-header"><h2 id="tools-h">Health Tools</h2><p class="section-header__sub">All calculations run locally. No data leaves your browser.</p></header>
+<div class="tools-hub__grid">
+<a href="/tools/bmi.html" class="tool-card"><span class="tool-card__icon">⚖️</span><h3>BMI Calculator</h3><p>Age-adjusted BMI with waist-to-height context.</p><span class="tool-card__cta">Calculate →</span></a>
+<a href="/tools/bp.html" class="tool-card"><span class="tool-card__icon">❤️</span><h3>Blood Pressure Guide</h3><p>Interpret readings per ACC/AHA 2025 standards.</p><span class="tool-card__cta">Check →</span></a>
+</div>
+</div>
+</section>
+
+<---newsletter trust builder--->
+<section class="newsletter container" aria-labelledby="nl-h">
+<div class="newsletter__inner">
+<h2 id="nl-h">Evidence, Not Hype</h2>
+<p>Weekly digest of peer-reviewed research. Plain language. Unsubscribe anytime.</p>
+<p class="newsletter__proof">284,000+ readers · Zero third-party sharing</p>
+<form class="newsletter__form" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Subscribed!'">
+<label for="email" class="visually-hidden">Email</label>
+<input type="email" id="email" placeholder="your@email.com" required autocomplete="email">
+<button type="submit" class="btn btn--primary">Get Weekly Digest</button>
+</form>
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer"><div class="container footer__inner">
+<p>&copy; 2026 EvidenceHealth. Informational only, not medical advice.</p>
+<nav><a href="/privacy/">Privacy</a> <a href="/editorial-policy/">Editorial Policy</a> <a href="/feed.xml">RSS</a></nav>
+</div></footer>
+
+<script src="/scripts/search.js" defer></script>
+</body>
+</html>
